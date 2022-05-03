@@ -18,6 +18,7 @@ class CreateCargasTable extends Migration
             $table->date('data_envio');
             $table->date('data_recebida')->nullable();
             $table->decimal('peso_guia', $precision = 9, $scale = 1)->nullable();
+            $table->decimal('volume_guia', $precision = 9, $scale = 1)->nullable();
             $table->enum('estado', ['MIA', 'ADU', 'PWT'])->default('MIA');
             $table->text('observacoes')->nullable();
             $table->timestamps();

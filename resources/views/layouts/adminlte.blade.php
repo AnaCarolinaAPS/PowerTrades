@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+
     {{-- $(function () {
         $('select').selectpicker();
     }); --}}
@@ -85,8 +86,8 @@
                 </a>
             </li>
             @can('eLog')
-                <li class="nav-item {{ ((request()->segment(2) == 'clientes') || (request()->segment(2) == 'fleteros') || (request()->segment(2) == 'despachantes')) ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ (request()->segment(2) == 'clientes') || (request()->segment(2) == 'fleteros') || (request()->segment(2) == 'despachantes') ? 'active' : '' }}">
+                <li class="nav-item {{ ((request()->segment(2) == 'clientes') || (request()->segment(2) == 'freteiros') || (request()->segment(2) == 'despachantes')) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ (request()->segment(2) == 'clientes') || (request()->segment(2) == 'freteiros') || (request()->segment(2) == 'despachantes') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
                             Catastros
@@ -101,7 +102,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('freteiros.index') }}" class="nav-link {{ (request()->segment(2) == 'freteiros') ? 'active' : '' }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Fleteros</p>
                             </a>
@@ -145,7 +146,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-box-open"></i>
+                        <i class="nav-icon fas fa-chart-line"></i>
                         <p>
                             Relatórios
                             <i class="right fas fa-angle-left"></i>

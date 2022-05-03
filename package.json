@@ -28,6 +28,7 @@
         "@ckeditor/ckeditor5-build-classic": "^31.0.0",
         "@ckeditor/ckeditor5-vue2": "^1.0.5",
         "bootstrap-select": "^1.13.18",
-        "vue-ckeditor2": "^2.1.5"
+        "vue-ckeditor2": "^2.1.5",
+        "vue-select": "^3.16.0"
     }
 }

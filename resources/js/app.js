@@ -22,6 +22,8 @@ const store = new Vuex.Store({
     }
 });
 
+import vSelect from "vue-select";
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -48,6 +50,7 @@ Vue.component('modal-link-component', require('./components/modal/ModalLink.vue'
 Vue.component('table-list-component', require('./components/TableList.vue').default);
 Vue.component('tabela-lista-component', require('./components/TabelaLista.vue').default);
 Vue.component('formulario-component', require('./components/Formulario.vue').default);
+Vue.component("v-select", vSelect);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

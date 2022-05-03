@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Freteiros;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,15 @@ class FreteirosController extends Controller
      */
     public function index()
     {
-        //
+        $listaMigalhas = json_encode([
+            ["titulo" => "Painel", "url" => route('adminicio')],
+            ["titulo" => "Lista de Freteiros", "url" => ""],
+        ]);
+        // $listaModelo = Warehouse::select('id', 'data', 'warehouse', 'remetente')->get();
+        $listaModelo = Freteiros::listaFreteiros();
+        // $listaUsuarios = NULL;
+        // $listaUsuarios = User::listaUserSinClientes();
+        return view('admin.cad.freteiros.index',compact('listaMigalhas', 'listaModelo'));
     }
 
     /**
@@ -35,7 +44,18 @@ class FreteirosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $validacao = \Validator::make($data, [
+            "nome" => "required",
+            "numero_documento" => "required",
+            "contato" => "required",
+        ]);
+
+        if ($validacao->fails()) {
+            return redirect()->back()->withErrors($validacao)->withInput();
+        }
+        $freteiro = Freteiros::create($data);
+        return redirect()->back();
     }
 
     /**
@@ -46,7 +66,9 @@ class FreteirosController extends Controller
      */
     public function show($id)
     {
-        //
+        return Freteiros::find($id);
+        // $cliente = Cliente::dadosCliente($id);
+        // return json_encode($cliente);
     }
 
     /**
@@ -69,7 +91,18 @@ class FreteirosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $validacao = \Validator::make($data, [
+            "nome" => "required",
+            "numero_documento" => "required",
+            "contato" => "required",
+        ]);
+
+        if ($validacao->fails()) {
+            return redirect()->back()->withErrors($validacao)->withInput();
+        }
+        Freteiros::find($id)->update($data);
+        return redirect()->back();
     }
 
     /**

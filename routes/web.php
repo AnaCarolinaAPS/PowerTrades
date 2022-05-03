@@ -30,6 +30,7 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->group(function()
     Route::resource('warehouses', 'WarehousesController')->middleware('can:eAdmin');
     Route::resource('paquetes', 'PackageController')->middleware('can:eAdmin');
     Route::resource('clientes', 'ClientesController')->middleware('can:eAdmin');
+    Route::resource('freteiros', 'FreteirosController')->middleware('can:eAdmin');
 
     Route::resource('dados', 'MisDatosController')->middleware('can:eCli');
 });

@@ -19,6 +19,7 @@ class CreateFreteirosTable extends Migration
             $table->enum('nacionalidade', ['BRA', 'PYG', 'EUA'])->default('PYG');
             $table->enum('tipo_documento', ['RUC', 'RG', 'SI'])->default('RUC');
             $table->string('numero_documento');
+            $table->string('contato');
             $table->string('referencia')->nullable();
             $table->text('observacoes')->nullable();
             $table->timestamps();
