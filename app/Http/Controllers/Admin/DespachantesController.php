@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Cargas;
+use App\Despachantes;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CargasController extends Controller
+class DespachantesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +17,13 @@ class CargasController extends Controller
     {
         $listaMigalhas = json_encode([
             ["titulo" => "Painel", "url" => route('adminicio')],
-            ["titulo" => "Lista de Cargas", "url" => ""],
+            ["titulo" => "Lista de Despachantes", "url" => ""],
         ]);
-        $listaModelo = Cargas::select('id', 'data_envio', 'data_recebida')->get();
-        // $listaModelo = Warehouse::listaWarehouses();
-        return view('admin.log.cargas.index',compact('listaMigalhas', 'listaModelo'));
+        // $listaModelo = Despachantes::select('id', 'nome', 'referencia', 'contato')->get();
+        $listaModelo = Despachantes::listaDespachantes();
+        // $listaUsuarios = NULL;
+        // $listaUsuarios = User::listaUserSinClientes();
+        return view('admin.cad.despachantes.index',compact('listaMigalhas', 'listaModelo'));
     }
 
     /**

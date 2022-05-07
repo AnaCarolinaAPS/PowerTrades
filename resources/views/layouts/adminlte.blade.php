@@ -108,7 +108,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('despachantes.index') }}" class="nav-link {{ (request()->segment(2) == 'despachantes') ? 'active' : '' }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Despachante</p>
                             </a>
@@ -125,7 +125,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('cargas.index') }}" class="nav-link {{ (request()->segment(2) == 'cargas') ? 'active' : '' }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Cargas</p>
                             </a>

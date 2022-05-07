@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Cargas;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CargasController extends Controller
+class EmbarcadoresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +14,7 @@ class CargasController extends Controller
      */
     public function index()
     {
-        $listaMigalhas = json_encode([
-            ["titulo" => "Painel", "url" => route('adminicio')],
-            ["titulo" => "Lista de Cargas", "url" => ""],
-        ]);
-        $listaModelo = Cargas::select('id', 'data_envio', 'data_recebida')->get();
-        // $listaModelo = Warehouse::listaWarehouses();
-        return view('admin.log.cargas.index',compact('listaMigalhas', 'listaModelo'));
+        //
     }
 
     /**
